@@ -189,12 +189,12 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  /* const a = num / 10;
-  const b = a.toFixed(pow);
-  const result = b * 10;
-  return result; */
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const c = `1e${pow}`;
+  const a = num / c;
+  const b = Math.round(a);
+  const result = b * c;
+  return result;
 }
 
 /**
@@ -236,9 +236,14 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const a = +value;
+  if (a > 0) {
+    return a;
+  }
+  return def;
 }
+
 
 module.exports = {
   getRectangleArea,
